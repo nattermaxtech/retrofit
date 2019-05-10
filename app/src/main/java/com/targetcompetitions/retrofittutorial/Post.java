@@ -1,7 +1,7 @@
 package com.targetcompetitions.retrofittutorial;
 
 public class Post {
-    private int id;
+    private Integer id = null;
     private int userId;
     private String title;
     private String body;
