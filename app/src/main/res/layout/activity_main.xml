@@ -31,7 +31,6 @@
             android:ems="10"
             android:hint="@string/title"
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintBottom_toTopOf="@+id/userIdView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
