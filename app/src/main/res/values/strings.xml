@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RetrofitTutorial</string>
+    <string name="insert_post">Add New Post</string>
+    <string name="title">Title</string>
+    <string name="user_id">User ID</string>
+    <string name="body">Write Your Post Here</string>
+    <string name="submit">Submit</string>
 </resources>
