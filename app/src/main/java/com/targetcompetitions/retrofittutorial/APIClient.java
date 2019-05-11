@@ -3,6 +3,8 @@ package com.targetcompetitions.retrofittutorial;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -19,7 +21,17 @@ public class APIClient {
         if(retrofit == null){
             // if null then create and return and if not then return
             // the existing object
-            retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(gson)).build();
+            OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
+            HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            if(BuildConfig.DEBUG){
+                clientBuilder.addInterceptor(interceptor);
+            }
+
+            retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .client(clientBuilder.build())
+                    .build();
         }
 
         return retrofit;
